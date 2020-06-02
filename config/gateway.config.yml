@@ -1,0 +1,56 @@
+http:
+  port: 8080
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  maorApi:
+    host: '*'
+    paths: '/app/maor'
+  testApi:
+    host: '*'
+    paths: '/test'
+  localApi:
+    host: '*'
+    paths: '/*'
+serviceEndpoints:
+  maor:
+    url: 'http://market-chart.herokuapp.com/'
+  localsite:
+    url: 'http://localhost:1337/local'
+  testsite:
+    url: 'http://ec2-52-12-186-147.us-west-2.compute.amazonaws.com'
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  default:
+    apiEndpoints:
+      - testApi
+    policies:
+      - proxy:
+        - action:
+            serviceEndpoint: testsite
+            changeOrigin: false
+  local:
+    apiEndpoints:
+      - localApi
+    policies:
+      - proxy:
+        - action:
+            serviceEndpoint: localsite
+            changeOrigin: false
+  maor:
+      apiEndpoints:
+        - maorApi
+      policies:
+        - proxy:
+          - action:
+              serviceEndpoint: maor
+              changeOrigin: false

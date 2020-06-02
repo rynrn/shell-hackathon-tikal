@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <span>Shell</span>
+  <span class="spacer"></span>
+
+  <mat-icon (click)="openDialog()">add_circle_outline</mat-icon>
+</mat-toolbar>
+
+<mat-tab-group>
+  <mat-tab *ngFor="let app of applicationService.apps$ | async" [label]="app.name">
+    <!-- <iframe src="/test" (load)="onLoadIframe($event)"></iframe> -->
+    <iframe [src]="'app/' + app.name | safe"></iframe>
+  </mat-tab>
+</mat-tab-group>
