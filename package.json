@@ -26,7 +26,7 @@
     "@angular/router": "~8.2.0",
     "express-gateway": "^1.16.10",
     "hammerjs": "^2.0.8",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "parse": "^2.9.1",
     "parse-dashboard": "^2.0.1",
     "parse-server": "^3.8.0",
