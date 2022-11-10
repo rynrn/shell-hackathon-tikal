@@ -29,7 +29,7 @@
     "lodash": "^4.17.15",
     "parse": "^2.9.1",
     "parse-dashboard": "^2.0.1",
-    "parse-server": "^3.8.0",
+    "parse-server": "^4.10.19",
     "proxy-middleware": "^0.15.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
